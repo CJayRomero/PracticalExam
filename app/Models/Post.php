@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public function user()
-{
-    return $this->belongsTo(User::class);
-}
+    use HasFactory;
+
+    // Allow mass assignment for these attributes
+    protected $fillable = [
+        'title',
+        'body',
+        // Add other fields you want to allow here
+    ];
 }
